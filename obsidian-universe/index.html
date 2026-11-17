@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Obsidian Universe</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%23fff'/%3E%3Cellipse cx='16' cy='16' rx='14' ry='6' fill='none' stroke='%23a64dff' stroke-width='2' transform='rotate(-25 16 16)'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div id="boot" class="boot"><span>Reading your vault…</span></div>
+
+  <!-- Dashboard -->
+  <main id="dashboard" class="dashboard" hidden>
+    <button id="mini" class="mini" title="Open the universe">
+      <div id="mini-canvas" class="mini-canvas"></div>
+      <span id="mini-caption" class="mini-caption"></span>
+    </button>
+
+    <header class="dash-top">
+      <span class="brand"><i class="brand-dot"></i><span id="vault-name"></span></span>
+      <button class="ghost small" id="dash-search">Search <kbd>⌘K</kbd></button>
+    </header>
+
+    <section class="hero">
+      <div id="dash-date" class="dash-date"></div>
+      <h1 id="dash-greeting" class="greeting"></h1>
+      <div id="dash-stats" class="dash-stats"></div>
+      <form id="capture" class="capture" autocomplete="off">
+        <input id="capture-input" name="text" maxlength="4000" placeholder="Capture a thought – it goes into today's note" />
+        <button type="submit" class="capture-go" aria-label="Save">↵</button>
+      </form>
+    </section>
+
+    <section id="cards" class="cards"></section>
+
+    <section class="row">
+      <article id="today" class="card panel today"></article>
+      <article id="mood" class="card panel mood"></article>
+      <article id="streak" class="card panel streak"></article>
+    </section>
+
+    <article id="heatmap" class="card panel heatmap"></article>
+
+    <p id="demo-notice" class="notice" hidden></p>
+  </main>
+
+  <!-- Universe -->
+  <section id="universe" class="universe" hidden>
+    <div id="u-canvas" class="u-canvas"></div>
+    <div class="hud">
+      <div class="hud-tl">
+        <button class="ghost" id="back">← Home</button>
+        <div class="hud-title">
+          <span id="hud-vault"></span>
+          <span id="hud-sub" class="hud-sub"></span>
+        </div>
+      </div>
+      <div class="hud-tc">
+        <div class="seg" role="tablist">
+          <button id="seg-universe" class="on">Universe</button>
+          <button id="seg-brain">Brain</button>
+        </div>
+      </div>
+      <div class="hud-tr">
+        <button class="ghost" id="search-btn">Search <kbd>⌘K</kbd></button>
+        <div id="schemes" class="schemes" aria-label="Colour scheme"></div>
+        <button class="rec" id="rec-btn">● Record</button>
+      </div>
+
+      <div id="hint" class="hint">
+        <span>Click a star</span><i>·</i>
+        <button data-act="morph"><kbd>Space</kbd> morph</button><i>·</i>
+        <button data-act="grow"><kbd>G</kbd> watch it grow</button><i>·</i>
+        <button data-act="record"><kbd>R</kbd> record</button><i>·</i>
+        <button data-act="clean"><kbd>C</kbd> clean view</button><i>·</i>
+        <button data-act="search"><kbd>⌘K</kbd> search</button>
+      </div>
+
+      <div id="timeline" class="timeline" hidden>
+        <button id="tl-play" class="tl-play" aria-label="Play">▶</button>
+        <div id="tl-month" class="tl-month">—</div>
+        <input id="tl-range" class="tl-range" type="range" min="0" max="1000" value="0" />
+        <div id="tl-count" class="tl-count">0 notes</div>
+        <button id="tl-close" class="tl-close" aria-label="Close timeline">✕</button>
+      </div>
+
+      <aside id="preview" class="preview" hidden>
+        <button class="preview-close" id="preview-close" aria-label="Close">✕</button>
+        <div id="preview-body"></div>
+      </aside>
+
+      <div id="tooltip" class="tooltip" hidden></div>
+      <div id="fps" class="fps" hidden></div>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <div id="palette" class="palette" hidden>
+    <div class="palette-box" role="dialog" aria-label="Search notes">
+      <input id="palette-input" placeholder="Search notes…" autocomplete="off" spellcheck="false" />
+      <ul id="palette-list"></ul>
+      <div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> select</span><span><kbd>↵</kbd> fly to star</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

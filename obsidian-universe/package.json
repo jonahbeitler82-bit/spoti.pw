@@ -1,0 +1,19 @@
+{
+  "name": "obsidian-universe",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Your Obsidian vault as a glowing 3D universe. Local only.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "demo": "node server/demo-vault.js --force"
+  },
+  "dependencies": {
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}
